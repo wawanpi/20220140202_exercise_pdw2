@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komentar Anda Tentang Web Ini</title>
+    <style>
+        /* Gaya untuk body */
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #f0f0f0; /* Warna latar belakang */
+            color: rgb(0, 0, 0); /* Warna teks */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Gaya untuk judul utama */
+        h1 {
+            text-align: center;
+            padding: 30px 0;
+            background-color: dodgerblue; /* Warna latar belakang judul */
+            color: #fff; /* Warna teks judul */
+            font-size: 2.5em;
+        }
+
+        /* Gaya untuk form komentar */
+        .p1 {
+            display: inline-block;
+            padding: 20px;
+            background: #fff; /* Warna latar belakang form */
+            border: 2px solid #ccc; /* Garis batas form */
+            border-radius: 10px; /* Sudut melengkung form */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+            animation: fadeInUp 3s ease-out forwards; /* Animasi masuk */
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: hwb(206 20% 22%);
+            max-width: 800px;
+            transform: translate(-50%);
+        }
+
+        /* Animasi fade in untuk form */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Gaya untuk kontainer media */
+        .media-container {
+            background-color: #fff; /* Warna latar belakang */
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px; /* Sudut melengkung */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+            max-width: 800px;
+        }
+
+        /* Gaya untuk judul di kontainer media */
+        .media-container h2 {
+            color: #1e90ff; /* Warna teks */
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        /* Gaya untuk paragraf di kontainer media */
+        .media-container p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        /* Gaya untuk elemen audio dan video */
+        audio,
+        video {
+            display: block;
+            margin: 20px 0;
+            width: 100%;
+            border-radius: 10px; /* Sudut melengkung */
+        }
+
+        /* Gaya untuk gambar */
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 10px; /* Sudut melengkung */
+        }
+
+        /* Gaya untuk tombol */
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1e90ff; /* Warna latar belakang tombol */
+            color: #fff; /* Warna teks tombol */
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px; /* Sudut melengkung tombol */
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px auto;
+            width: 200px;
+            transition: background-color 0.3s ease; /* Transisi warna latar belakang */
+        }
+
+        /* Gaya saat tombol di-hover */
+        button:hover {
+            background-color: #187bcd; /* Warna latar belakang saat hover */
+        }
+
+        /* Gaya untuk ikon di dalam tombol */
+        button svg {
+            margin-right: 10px;
+        }
+
+        /* Gaya untuk teks dalam tombol */
+        button span {
+            display: inline-block;
+        }
+
+        /* Gaya untuk kontainer form */
+        .form {
+            background-color: #fff; /* Warna latar belakang form */
+            padding: 20px;
+            border-radius: 10px; /* Sudut melengkung */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        /* Gaya untuk judul form */
+        .form .title {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333; /* Warna teks */
+        }
+
+        /* Gaya untuk input dan textarea */
+        .input,
+        .Komentar {
+            width: 100%; /* Lebar penuh */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc; /* Garis batas */
+            border-radius: 5px; /* Sudut melengkung */
+        }
+
+        /* Gaya untuk tombol konfirmasi dan kembali */
+        .button-confirm,
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            background-color: #1e90ff; /* Warna latar belakang tombol */
+            color: white; /* Warna teks tombol */
+            border: none;
+            border-radius: 5px; /* Sudut melengkung tombol */
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        /* Gaya saat tombol konfirmasi dan kembali di-hover */
+        .button-confirm:hover,
+        .back-button:hover {
+            background-color: #187bcd; /* Warna latar belakang saat hover */
+        }
+
+        /* Gaya untuk label */
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Gaya untuk pesan terima kasih */
+        .thank-you-message {
+            display: none; /* Awalnya tersembunyi */
+            text-align: center;
+            font-size: 1.2em;
+            color: green; /* Warna teks */
+            margin-top: 20px;
+        }
+
+        /* Gaya untuk kontainer komentar */
+        .komentar-container {
+            display: none; /* Awalnya tersembunyi */
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc; /* Garis batas */
+            border-radius: 10px; /* Sudut melengkung */
+            background-color: #fff; /* Warna latar belakang */
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        /* Gaya untuk judul di kontainer komentar */
+        .komentar-container h3 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Gaya untuk paragraf di kontainer komentar */
+        .komentar-container p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Formulir Komentar -->
+    <div class="form">
+        <div class="title">Formulir Komentar<br><span>Isi formulir di bawah ini</span></div>
+        <form action="" onsubmit="showAlert(event)">
+            <!-- Input nama -->
+            <label for="nama">Nama:</label><br>
+            <input type="text" id="nama" name="nama" class="input" required><br>
+
+            <!-- Input tanggal lahir -->
+            <label for="tanggal_lahir">Tanggal Lahir:</label><br>
+            <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="input" required><br>
+
+            <!-- Input jenis kelamin -->
+            <label for="jenis_kelamin">Jenis Kelamin:</label><br>
+            <select id="jenis_kelamin" name="jenis_kelamin" class="input" required>
+                <option value="">Pilih</option>
+                <option value="laki-laki">Laki-laki</option>
+                <option value="perempuan">Perempuan</option>
+                <option value="lainnya">Lainnya</option>
+            </select><br>
+
+            <!-- Input anggota favorit -->
+            <label>Siapa Member Yang Paling Kamu Suka:</label><br>
+            <input type="radio" id="chaewon" name="favorite_member" value="chaewon" required>
+            <label for="chaewon">chaewon</label>
+            <input type="radio" id="Heo Yun-jin" name="favorite_member" value="Heo Yun-jin" required>
+            <label for="Heo Yun-jin">Heo Yun-jin</label>
+            <input type="radio" id="Hong Eun-chae" name="favorite_member" value="Hong Eun-chae" required>
+            <label for="Hong Eun-chae">Hong Eun-chae</label>
+            <input type="radio" id="Kazuha Nakamura" name="favorite_member" value="Kazuha Nakamura" required>
+            <label for="Kazuha Nakamura">Kazuha Nakamura</label>
+            <input type="radio" id="Sakura Miyawaki" name="favorite_member" value="Sakura Miyawaki" required>
+            <label for="Sakura Miyawaki">Sakura Miyawaki</label><br>
+
+            <!-- Input komentar -->
+            <label for="Komentar">Komentar Anda:</label><br>
+            <textarea id="Komentar" name="Komentar" class="Komentar" rows="4" required></textarea><br>
+
+            <!-- Input alamat -->
+            <label for="alamat">Alamat:</label><br>
+            <textarea id="alamat" name="alamat" class="input" rows="4" required></textarea><br>
+
+            <!-- Input email -->
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" class="input" required><br>
+
+            <!-- Input nomor telepon -->
+            <label for="telepon">Nomor WhatsApp:</label><br>
+            <input type="tel" id="telepon" name="telepon" class="input" required><br>
+
+            <!-- Tombol kirim -->
+            <button type="submit" class="button-confirm">Kirim</button>
+            <!-- Tombol kembali -->
+            <button onclick="window.location.href='detail_anggota.html'" class="back-button" type="button">Kembali</button>
+        </form>
+
+        <!-- Pesan terima kasih -->
+        <div class="thank-you-message" id="thankYouMessage">Terima Kasih! Komentar Anda telah terkirim.</div>
+    </div>
+
+    <!-- Kontainer untuk menampilkan komentar yang dikirim -->
+    <div class="komentar-container" id="komentarContainer">
+        <h3>Data Komentar Anda</h3>
+        <p><strong>Nama:</strong> <span id="displayNama"></span></p>
+        <p><strong>Tanggal Lahir:</strong> <span id="displayTanggalLahir"></span></p>
+        <p><strong>Jenis Kelamin:</strong> <span id="displayJenisKelamin"></span></p>
+        <p><strong>Member Favorit:</strong> <span id="displayFavoriteMember"></span></p>
+        <p><strong>Komentar:</strong> <span id="displayKomentar"></span></p>
+        <p><strong>Alamat:</strong> <span id="displayAlamat"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+        <p><strong>Nomor WhatsApp:</strong> <span id="displayTelepon"></span></p>
+    </div>
+
+    <script>
+        function showAlert(event) {
+            event.preventDefault(); // Mencegah form dari pengiriman ke server
+
+            // Mengambil nilai dari input formulir
+            var nama = document.getElementById('nama').value;
+            var tanggalLahir = document.getElementById('tanggal_lahir').value;
+            var jenisKelamin = document.getElementById('jenis_kelamin').value;
+            var favoriteMember = document.querySelector('input[name="favorite_member"]:checked').value;
+            var komentar = document.getElementById('Komentar').value;
+            var alamat = document.getElementById('alamat').value;
+            var email = document.getElementById('email').value;
+            var telepon = document.getElementById('telepon').value;
+
+            // Menampilkan alert dengan data input
+            alert("Formulir berhasil dikirim!\n\nNama: " + nama +
+                "\nTanggal Lahir: " + tanggalLahir +
+                "\nJenis Kelamin: " + jenisKelamin +
+                "\nSiapa Member Yang Paling Kamu Suka: " + favoriteMember +
+                "\nKomentar: " + komentar +
+                "\nAlamat: " + alamat +
+                "\nEmail: " + email +
+                "\nNomor WhatsApp: " + telepon);
+
+            // Menampilkan pesan terima kasih
+            document.getElementById('thankYouMessage').style.display = 'block';
+
+            // Menampilkan data komentar di bawah form
+            document.getElementById('komentarContainer').style.display = 'block';
+            document.getElementById('displayNama').textContent = nama;
+            document.getElementById('displayTanggalLahir').textContent = tanggalLahir;
+            document.getElementById('displayJenisKelamin').textContent = jenisKelamin;
+            document.getElementById('displayFavoriteMember').textContent = favoriteMember;
+            document.getElementById('displayKomentar').textContent = komentar;
+            document.getElementById('displayAlamat').textContent = alamat;
+            document.getElementById('displayEmail').textContent = email;
+            document.getElementById('displayTelepon').textContent = telepon;
+
+            // Mengosongkan form
+            document.querySelector('form').reset();
+        }
+    </script>
+</body>
+
+</html>

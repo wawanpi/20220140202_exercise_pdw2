@@ -1,0 +1,115 @@
+/* Mengatur font, warna, dan latar belakang untuk elemen body */
+body {
+    font-family: 'Bebas Neue', cursive; /* Menggunakan font Bebas Neue dari Google Fonts */
+    color: #fff; /* Warna teks putih */
+    margin: 0; /* Menghapus margin default */
+    padding: 0; /* Menghapus padding default */
+    box-sizing: border-box; /* Memastikan padding dan border termasuk dalam ukuran elemen */
+    background-image: url('le-sserafim-easy-mv-kazuha-yunjin-eunchae-chaewon-sakura-4k-wallpaper-uhdpaper.com-114@1@o.jpg'); /* Menambahkan gambar latar belakang */
+    background-size: cover; /* Menyesuaikan ukuran gambar latar belakang untuk menutupi seluruh elemen */
+    background-position: center; /* Menempatkan gambar di tengah elemen */
+    background-repeat: no-repeat; /* Menghindari pengulangan gambar latar belakang */
+    background-attachment: fixed; /* Menetapkan gambar latar belakang tetap pada tempatnya saat scroll */
+}
+
+/* Mengimpor font kustom menggunakan @font-face */
+@font-face {
+    font-family: 'wan'; /* Nama font kustom */
+    src: url('Gotham-Black.otf') format('truetype'); /* Lokasi dan format font */
+    font-style: normal; /* Style font */
+}
+
+/* Mengatur font untuk elemen body dan menggantikan dengan font kustom */
+body {
+    font-family: 'wan', Arial, sans-serif; /* Menggunakan font kustom 'wan' sebagai font utama */
+}
+
+/* Mengatur font untuk elemen h1, h2, h3 */
+h1, h2, h3 {
+    font-family: 'wan', Arial, sans-serif; /* Menggunakan font kustom 'wan' */
+}
+
+/* Mengatur tampilan untuk elemen h1 */
+h1 {
+    font-weight: bold; /* Mengatur font menjadi tebal */
+    text-align: center; /* Menempatkan teks di tengah */
+    margin-top: 50px; /* Memberikan jarak di atas elemen */
+    font-size: 3em; /* Mengatur ukuran font */
+    color: #ffde4d6b; /* Mengatur warna teks */
+    border-top: #fafafa; /* Menambahkan border atas (tidak terlihat karena border-top diatur di bawah) */
+    border-radius: 10%; /* Membulatkan sudut elemen */
+    -webkit-text-stroke: 1px #ffffff; /* Menambahkan garis tepi putih pada teks */
+    text-shadow: 10px 10px 10px rgb(0, 0, 0); /* Menambahkan bayangan teks */
+}
+
+/* Mengatur tampilan untuk elemen ul */
+ul {
+    display: flex; /* Menggunakan flexbox untuk layout */
+    justify-content: center; /* Menempatkan item di tengah secara horizontal */
+    align-items: center; /* Menempatkan item di tengah secara vertikal */
+    flex-wrap: wrap; /* Memungkinkan item untuk membungkus jika ruang tidak cukup */
+    padding: 20px 0; /* Memberikan padding atas dan bawah */
+    list-style-type: none; /* Menghapus penanda list default */
+}
+
+/* Mengatur tampilan untuk elemen li */
+li {
+    text-align: center; /* Menempatkan teks di tengah */
+    flex: 1; /* Memungkinkan elemen untuk tumbuh dan menyesuaikan ruang */
+    margin: 10px; /* Memberikan jarak di sekitar elemen */
+    padding: 20px; /* Memberikan padding di dalam elemen */
+    background-color: rgba(0, 0, 0, 0.6); /* Menambahkan latar belakang semi-transparan */
+    border-radius: 10px; /* Membulatkan sudut elemen */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan pada elemen */
+    transition: all 0.3s ease; /* Menambahkan transisi halus untuk semua perubahan */
+    overflow: hidden; /* Menghindari konten meluap dari elemen */
+    position: relative; /* Mengatur posisi relatif untuk pseudo-elemen */
+}
+
+/* Menambahkan efek sebelum elemen li */
+li::before {
+    content: ''; /* Tidak menampilkan konten apa pun */
+    position: absolute; /* Mengatur posisi absolut */
+    top: 50%; /* Menempatkan di tengah secara vertikal */
+    left: 50%; /* Menempatkan di tengah secara horizontal */
+    width: 300%; /* Lebar pseudo-elemen */
+    height: 300%; /* Tinggi pseudo-elemen */
+    background-color: rgba(255, 255, 255, 0.2); /* Menambahkan warna latar belakang semi-transparan */
+    border-radius: 50%; /* Membulatkan sudut menjadi lingkaran */
+    z-index: 0; /* Menempatkan di belakang konten elemen */
+    transition: all 0.3s ease; /* Menambahkan transisi halus untuk semua perubahan */
+    transform: translate(-50%, -50%) scale(0); /* Menyembunyikan pseudo-elemen */
+}
+
+/* Menambahkan efek hover untuk elemen li */
+li:hover::before {
+    transform: translate(-50%, -50%) scale(1); /* Memperbesar pseudo-elemen saat hover */
+}
+
+li:hover {
+    transform: translateY(-5px); /* Menggeser elemen sedikit ke atas saat hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan lebih besar saat hover */
+}
+
+/* Mengatur tampilan untuk gambar */
+img {
+    max-width: 100%; /* Memastikan gambar tidak melebihi lebar elemen */
+    height: auto; /* Menjaga proporsi gambar */
+    border-radius: 10px; /* Membulatkan sudut gambar */
+    z-index: 1; /* Menempatkan gambar di atas pseudo-elemen */
+}
+
+/* Mengatur tampilan untuk video */
+video {
+    max-width: 100%; /* Memastikan video tidak melebihi lebar elemen */
+    height: auto; /* Menjaga proporsi video */
+    border-radius: 5px; /* Membulatkan sudut video */
+    z-index: 1; /* Menempatkan video di atas pseudo-elemen */
+}
+
+/* Mengatur tampilan untuk garis horizontal */
+hr {
+    border: none; /* Menghapus border default */
+    border-top: 1px solid #ffffff; /* Menambahkan border atas putih */
+    margin: 20px 0; /* Memberikan jarak atas dan bawah */
+}
